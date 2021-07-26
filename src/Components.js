@@ -12,7 +12,7 @@ class Components extends React.Component {
   }
   
   handleClick(value)  {
-    this.props.action(value);
+    this.props.addComponent(value);
   }
   render() {
     const components = this.props.state
@@ -30,12 +30,12 @@ class Components extends React.Component {
 }
 
   const Wrapper = styled.div `
-    background: #dfdfdf;
+    background: rgba(0,0,0,0.3);
     width: 600px;
     margin: 0 auto;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-evenly ;
   `;
   export default Components;
   

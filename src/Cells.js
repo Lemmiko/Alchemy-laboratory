@@ -4,25 +4,38 @@ import styled from 'styled-components'
 
 
 
+class Cells extends React.Component {
+  constructor(props) {
+    super(props)
+    
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-function Cells(props) {
-  const components = props.state
+  
 
+  handleClick(value)  {
+    this.props.deleteCurrent(value);
+  }
+
+  render () {
+  const components = this.props.state
     return (
       <Wrapper>
           {components.map((component) => 
           <Component 
           key={component.id} 
-          title={component.title}/>
+          title={component.title}
+          onClick={() => this.handleClick(component.key)}/>
            )}
       </Wrapper>
-    );
+    );}
   }
   const Wrapper = styled.div `
-  margin-top: 100px;
-  background: #dfdfdf;
+  margin: 50px auto 20px;
+  width: 300px;
+  background: rgba(0,0,0,0.3);
   display: flex;
-  justify-content: center;
+  justify-content: center ;
   `
 
   export default Cells;

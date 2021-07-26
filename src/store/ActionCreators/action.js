@@ -1,18 +1,24 @@
 export const CREATE_POTION = 'CREATE_POTION';
 export const ADD_COMPONENT = 'ADD_COMPONENT';
+export const DELETE_CURRENT = 'DELETE_CURRENT';
 
 
-const addComponent = (value) => {
+export const addComponent = (value) => {
     return {
         type: ADD_COMPONENT,
         name: value
     }
 }
-// const createPotion = (idComponent_1,idComponent_2) => {
-//     return {
-//         type: CREATE_POTION,
-//         idComponent_1: idComponent_1,
-//         idComponent_2: idComponent_2
-//     }
-// }
-export default addComponent
+
+export const deleteCurrent = (id) => {
+    return {
+        type: DELETE_CURRENT,
+        id: id
+    }
+}
+
+export const createPotion = () => {
+    return {
+        type: CREATE_POTION,
+    }
+}
