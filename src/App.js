@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import Components from './Components';
+import Cells from './Cells';
+import styled from 'styled-components'
+import React from 'react';
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import addComponent from './store/ActionCreators/action'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends React.Component {
+   render () {
+    return <Wrapper>
+              <Components state={this.props.components}
+                          action={this.props.action}/>
+              <Cells state={this.props.currentComponents}/>
+           </Wrapper>
+  }
+  }
 
-export default App;
+ const mapStateToProps = (state) => {
+    return {
+      components: state.components,
+      currentComponents: state.currentComponents
+    }
+    }
+ const mapDispatchToProps = (dispatch) =>  {
+   return {
+    
+    action: bindActionCreators(addComponent, dispatch)
+   }
+ }   
+
+    const WrappedApp = connect(mapStateToProps, mapDispatchToProps)(App)
+
+
+
+ const Wrapper = styled.div `
+  width: 600px;
+  background: #f1f1f1;
+  height: 100vh;
+  margin: 0 auto;
+ `
+
+export default WrappedApp;
