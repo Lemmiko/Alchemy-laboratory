@@ -23,7 +23,8 @@ class Cells extends React.Component {
       <Wrapper>
           {components.map((component) => 
           <Component 
-          key={component.id} 
+          key={component.key} 
+          id={component.key} 
           title={component.title}
           onClick={() => this.handleClick(component.key)}/>
            )}

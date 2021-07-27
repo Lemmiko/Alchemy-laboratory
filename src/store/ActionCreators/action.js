@@ -13,7 +13,7 @@ export const addComponent = (value) => {
 export const deleteCurrent = (id) => {
     return {
         type: DELETE_CURRENT,
-        id: id
+        key: id
     }
 }
 

@@ -22,7 +22,7 @@ class Components extends React.Component {
         <Wrapper>
           {components.map((component) => 
           
-          <Component key={i++} title={component} onClick={() => this.handleClick(component)} />
+          <Component key={i++} id={i++} title={component} onClick={() => this.handleClick(component)} />
            )}
         </Wrapper>
     );

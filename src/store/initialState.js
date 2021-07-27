@@ -10,8 +10,8 @@ const initialState = {
         'Гниль Намиры'
     ],
     currentComponents: [
-        {title: null, id: 1},     
-        {title: null, id: 2},  
+        {title: null, key: 1},     
+        {title: null, key: 2},  
         ],
     potions: []
 }

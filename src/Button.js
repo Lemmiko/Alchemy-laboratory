@@ -18,7 +18,6 @@ function Button (props) {
     width: 90px;
     font-weight: 700;
     border-radius: 10px;
-    box-shadow: 1px 2px rgba(54, 54, 54, 0.9); 
     background: rgba(219, 191, 154, 1);
     display: flex;
     justify-content: center;
@@ -29,7 +28,6 @@ function Button (props) {
     cursor: pointer;
     &:active {
         box-shadow: none;
-        margin-top: 42px;
         background: rgba(186, 163, 132, 1);
     }
     `

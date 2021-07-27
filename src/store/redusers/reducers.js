@@ -1,13 +1,15 @@
 import initialState from '../initialState';
 import {ADD_COMPONENT, DELETE_CURRENT, CREATE_POTION} from '../ActionCreators/action'
-// import recipe from '../recipe'
+import recipe from '../recipe'
 
 const searchPotions = (comp1, comp2) => {
     let result = [comp1,comp2].sort();
     result = `${result[0]}-${result[1]}`
-    
-    console.log(result)
-    return result
+    let objPotion = recipe.find(o => o.recipe === result)
+    if (!objPotion){
+        alert('Вы просто перевели ингредиенты, попробуйте еще раз.')
+    } else 
+    return objPotion
 
 }
 
@@ -32,35 +34,46 @@ const reducerAddComponent = (state = initialState, action) => {
                     } 
                     return state; 
         case DELETE_CURRENT: 
-        console.log(action.id)
-                    if (action.id === 1) {
+                    if (action.key === 1) {
                        return {...state,
                         currentComponents: [
-                            {title: null},
+                            {title: null,
+                             key: 1},
                             state.currentComponents[1]]
                             } 
-                }  else if (action.id === 2){
+                }  else if (action.key === 2){
                     return  {...state,
                         currentComponents: [
                             state.currentComponents[0],
-                            {title: null}
+                            {title: null,
+                             key: 2}
                                 ]
                             }
                         } return state;
         case CREATE_POTION: 
             if (state.currentComponents[0].title && state.currentComponents[1].title) {
             let potion = searchPotions(state.currentComponents[0].title, state.currentComponents[1].title)
-                
-            return {...state,
+            
+            if (potion === undefined) {
+                return {...state,
                     currentComponents: [
-                        {title: null},
-                        {title: null}],
+                        {title: null,
+                            key: 1},
+                        {title: null,
+                            key: 2}]
+                    } 
+            } else return {...state,
+                    currentComponents: [
+                        {title: null,
+                            key: 1},
+                        {title: null,
+                            key: 2}],
                         potions: [...state.potions, potion]
-                        }
-            } 
-            return state;
-                      default: return state    
-                }
+                        } 
+                    
+            }return state; 
+               default: return state           
+    }
                     
 };
 

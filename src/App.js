@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {addComponent, deleteCurrent, createPotion} from './store/ActionCreators/action'
 import Button from './Button'
+import PotionsShelf from './PotionsShelf';
 
 class App extends React.Component {
    render () {
@@ -15,6 +16,7 @@ class App extends React.Component {
               <Cells state={this.props.currentComponents}
                      deleteCurrent={this.props.deleteCurrent}/>
                <Button createPotion={this.props.createPotion}/>
+               <PotionsShelf potions={this.props.potions} />
            </Wrapper>
   }
   }
@@ -22,7 +24,8 @@ class App extends React.Component {
  const mapStateToProps = (state) => {
     return {
       components: state.components,
-      currentComponents: state.currentComponents
+      currentComponents: state.currentComponents,
+      potions:state.potions
     }
     }
  const mapDispatchToProps = (dispatch) =>  {
@@ -42,6 +45,7 @@ class App extends React.Component {
   background: rgba(0,0,0,0.5);
   height: 100vh;
   margin: 0 auto;
+  position: relative;
  `
 
 export default WrappedApp;
