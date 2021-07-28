@@ -13,7 +13,13 @@ const initialState = {
         {title: null, key: 1},     
         {title: null, key: 2},  
         ],
-    potions: []
+    potions: [],
+    modal: {
+        isToggle: false,
+        isCreated: false,
+        isFull: false,
+        potion: ''
+    }
 }
 
 export default initialState

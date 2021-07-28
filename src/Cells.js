@@ -32,7 +32,7 @@ class Cells extends React.Component {
     );}
   }
   const Wrapper = styled.div `
-  margin: 50px auto 20px;
+  margin: 20px auto;
   width: 300px;
   background: rgba(0,0,0,0.3);
   display: flex;

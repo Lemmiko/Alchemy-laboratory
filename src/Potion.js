@@ -11,16 +11,16 @@ function Potion(props) {
   }
   
 
+   
   const Wrapper = styled.div `
-    height: 100px;
+    height: 30px;
     width: 50px;
     border-radius: 10px;
-    background: rgba(219, 191, 154, 0.2);
+    /* background: rgba(219, 191, 154, 0.2); */
     display: flex;
     text-align: center;
     justify-content: space-evenly;
     align-items: center;
-    margin: 5px 5px;
 
   `
   const Img = styled.img`

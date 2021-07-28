@@ -23,7 +23,7 @@ function Component(props) {
     justify-content: center;
     text-align: center;
     align-items: center;
-    margin: 20px 15px;
+    margin: 10px 10px;
     border: 1px #0a0a0a solid;
     cursor: pointer;
     filter: opacity(80%) ;

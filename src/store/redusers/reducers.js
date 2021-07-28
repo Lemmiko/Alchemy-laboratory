@@ -1,19 +1,17 @@
 import initialState from '../initialState';
-import {ADD_COMPONENT, DELETE_CURRENT, CREATE_POTION} from '../ActionCreators/action'
+import {ADD_COMPONENT, DELETE_CURRENT, CREATE_POTION, CHANGE_TOGGLE} from '../ActionCreators/action'
 import recipe from '../recipe'
 
 const searchPotions = (comp1, comp2) => {
     let result = [comp1,comp2].sort();
     result = `${result[0]}-${result[1]}`
     let objPotion = recipe.find(o => o.recipe === result)
-    if (!objPotion){
-        alert('Вы просто перевели ингредиенты, попробуйте еще раз.')
-    } else 
+    if (objPotion){
     return objPotion
-
+    }
 }
 
-const reducerAddComponent = (state = initialState, action) => {
+const reducers = (state = initialState, action) => {
     switch(action.type) {
         case ADD_COMPONENT: 
         if (!state.currentComponents[0].title) {
@@ -51,7 +49,7 @@ const reducerAddComponent = (state = initialState, action) => {
                             }
                         } return state;
         case CREATE_POTION: 
-            if (state.currentComponents[0].title && state.currentComponents[1].title) {
+            if ((state.currentComponents[0].title && state.currentComponents[1].title) && state.potions.length < 7 ) {
             let potion = searchPotions(state.currentComponents[0].title, state.currentComponents[1].title)
             
             if (potion === undefined) {
@@ -60,22 +58,44 @@ const reducerAddComponent = (state = initialState, action) => {
                         {title: null,
                             key: 1},
                         {title: null,
-                            key: 2}]
+                            key: 2}],
+                        modal: {isToggle: true}
                     } 
-            } else return {...state,
+            } else if (potion) 
+                    return {...state,
                     currentComponents: [
                         {title: null,
                             key: 1},
                         {title: null,
                             key: 2}],
-                        potions: [...state.potions, potion]
+                        potions: [...state.potions, potion],
+                        modal: {isToggle: true,
+                                isCreated: true,
+                                potion: potion}
                         } 
                     
-            }return state; 
+            } else if(state.potions.length === 7) {
+                return {...state,
+                    currentComponents: [
+                        {title: null,
+                            key: 1},
+                        {title: null,
+                            key: 2}],
+                            modal: {isToggle: true,
+                                isFull: true}
+                        } 
+            
+         } return state;
+            case CHANGE_TOGGLE: 
+                return {...state,
+                    modal: {
+                        isToggle: !state.modal.isToggle
+                    }
+                } 
                default: return state           
     }
                     
 };
 
-export default reducerAddComponent;
+export default reducers;
   

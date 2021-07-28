@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Potion from './Potion';
 
 
+
 const PotionsShelf = (props) => {
     const potions = props.potions;
     let i = 0
@@ -18,12 +19,13 @@ const PotionsShelf = (props) => {
   
   }
     const Wrapper = styled.div `
-      margin-top: 5em;
-      width: 600px;
+      width: 500px;
       height: 200px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: start ;
+      position: absolute;
+      left: -300px;
+      top: 557px;
+      flex-wrap: wrap; 
     `;
     export default PotionsShelf;
     

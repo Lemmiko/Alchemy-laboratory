@@ -4,9 +4,10 @@ import styled from 'styled-components'
 import React from 'react';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {addComponent, deleteCurrent, createPotion} from './store/ActionCreators/action'
+import {addComponent, deleteCurrent, createPotion, changeToggle} from './store/ActionCreators/action'
 import Button from './Button'
 import PotionsShelf from './PotionsShelf';
+import Modal from './Modal'
 
 class App extends React.Component {
    render () {
@@ -16,7 +17,9 @@ class App extends React.Component {
               <Cells state={this.props.currentComponents}
                      deleteCurrent={this.props.deleteCurrent}/>
                <Button createPotion={this.props.createPotion}/>
-               <PotionsShelf potions={this.props.potions} />
+               <PotionsShelf potions={this.props.potions}/>
+               <Modal modal={this.props.modal}
+                      changeToggle={this.props.changeToggle}/>
            </Wrapper>
   }
   }
@@ -25,14 +28,16 @@ class App extends React.Component {
     return {
       components: state.components,
       currentComponents: state.currentComponents,
-      potions:state.potions
+      potions: state.potions,
+      modal: state.modal
     }
     }
  const mapDispatchToProps = (dispatch) =>  {
    return {
       addComponent: bindActionCreators(addComponent, dispatch),
       deleteCurrent: bindActionCreators(deleteCurrent, dispatch),
-      createPotion: bindActionCreators(createPotion, dispatch)
+      createPotion: bindActionCreators(createPotion, dispatch),
+      changeToggle: bindActionCreators(changeToggle, dispatch)
    }
  }   
 
@@ -43,7 +48,7 @@ class App extends React.Component {
  const Wrapper = styled.div `
   width: 600px;
   background: rgba(0,0,0,0.5);
-  height: 100vh;
+  height: 500px;
   margin: 0 auto;
   position: relative;
  `
