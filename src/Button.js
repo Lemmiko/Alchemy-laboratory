@@ -30,6 +30,11 @@ function Button (props) {
         box-shadow: none;
         background: rgba(186, 163, 132, 1);
     }
+    @media screen and (max-width: 600px) {
+      font-size: 15px;
+      height: 40px;
+      width: 80px;
+    }
     `
 
  

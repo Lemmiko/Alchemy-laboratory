@@ -36,6 +36,13 @@ class Components extends React.Component {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly ;
-  `;
+    @media screen and (max-width: 600px) {
+      width: 450px;
+    }
+
+    @media screen and (max-width: 450px) {
+      width: 350px;
+    }
+  `
   export default Components;
   

@@ -5,10 +5,36 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./img/lab2.jpg');
   background-repeat: no-repeat;
+  background: rgb(59, 59, 46);
   background-size: 100% 100vh;
 }
+@media screen and (min-width: 1500px) {
+
+  body {
+    background-image: url('./img/lab.jpg');};
+
+}
+
+@media screen and (max-width: 1500px) {
+
+  body {
+    background-image: url('./img/lab5.jpg');};
+
+}
+@media screen and (max-width: 970px) {
+
+  body {
+    background-image: url('./img/lab3.jpg');};
+
+}
+@media screen and (max-width: 650px) {
+
+  body {
+    background-image: url('./img/lab4.jpg');};
+
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

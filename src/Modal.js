@@ -24,6 +24,13 @@ import img from './img/bigpeper.png'
         p{
             margin: 100px;
         }
+        @media screen and (max-width: 850px) {
+        width: 350px;
+        height: 200px;
+        font-size: 20px;
+        top: 50%;
+        left: 10px;
+    }
         `
 const Modal = (props) => {
     const modal = props.modal

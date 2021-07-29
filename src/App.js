@@ -47,10 +47,14 @@ class App extends React.Component {
 
  const Wrapper = styled.div `
   width: 600px;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.3);
   height: 500px;
   margin: 0 auto;
   position: relative;
+  @media screen and (max-width: 600px) {
+      width: 450px;
+      margin: 0 auto;
+    }
  `
 
 export default WrappedApp;

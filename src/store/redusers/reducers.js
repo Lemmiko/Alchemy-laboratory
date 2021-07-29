@@ -49,7 +49,7 @@ const reducers = (state = initialState, action) => {
                             }
                         } return state;
         case CREATE_POTION: 
-            if ((state.currentComponents[0].title && state.currentComponents[1].title) && state.potions.length < 7 ) {
+            if ((state.currentComponents[0].title && state.currentComponents[1].title) && state.potions.length < 9 ) {
             let potion = searchPotions(state.currentComponents[0].title, state.currentComponents[1].title)
             
             if (potion === undefined) {
@@ -74,7 +74,7 @@ const reducers = (state = initialState, action) => {
                                 potion: potion}
                         } 
                     
-            } else if(state.potions.length === 7) {
+            } else if(state.potions.length === 9) {
                 return {...state,
                     currentComponents: [
                         {title: null,
