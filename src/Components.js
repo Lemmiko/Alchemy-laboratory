@@ -2,8 +2,6 @@ import React from 'react'
 import Component from './Component';
 import styled from 'styled-components'
 
-
-
 class Components extends React.Component {
   constructor(props) {
     super(props)
@@ -17,7 +15,6 @@ class Components extends React.Component {
   render() {
     const components = this.props.state
     let i = 0;
-  
     return (
         <Wrapper>
           {components.map((component) => 
@@ -26,8 +23,7 @@ class Components extends React.Component {
            )}
         </Wrapper>
     );
-}
-}
+}}
 
   const Wrapper = styled.div `
     background: rgba(0,0,0,0.3);

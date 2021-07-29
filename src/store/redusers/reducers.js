@@ -3,9 +3,9 @@ import {ADD_COMPONENT, DELETE_CURRENT, CREATE_POTION, CHANGE_TOGGLE} from '../Ac
 import recipe from '../recipe'
 
 const searchPotions = (comp1, comp2) => {
-    let result = [comp1,comp2].sort();
-    result = `${result[0]}-${result[1]}`
-    let objPotion = recipe.find(o => o.recipe === result)
+    let resultStr = [comp1,comp2].sort();
+    resultStr = `${resultStr[0]}-${resultStr[1]}`
+    let objPotion = recipe.find(o => o.recipe === resultStr)
     if (objPotion){
     return objPotion
     }
@@ -51,7 +51,6 @@ const reducers = (state = initialState, action) => {
         case CREATE_POTION: 
             if ((state.currentComponents[0].title && state.currentComponents[1].title) && state.potions.length < 9 ) {
             let potion = searchPotions(state.currentComponents[0].title, state.currentComponents[1].title)
-            
             if (potion === undefined) {
                 return {...state,
                     currentComponents: [
@@ -73,7 +72,6 @@ const reducers = (state = initialState, action) => {
                                 isCreated: true,
                                 potion: potion}
                         } 
-                    
             } else if(state.potions.length === 9) {
                 return {...state,
                     currentComponents: [
@@ -83,18 +81,16 @@ const reducers = (state = initialState, action) => {
                             key: 2}],
                             modal: {isToggle: true,
                                 isFull: true}
-                        } 
-            
+                        }     
          } return state;
             case CHANGE_TOGGLE: 
                 return {...state,
                     modal: {
-                        isToggle: !state.modal.isToggle
+                        isToggle: false
                     }
                 } 
                default: return state           
-    }
-                    
+            }             
 };
 
 export default reducers;

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import img from './img/bigpeper.png'
+
         const Wrapper = styled.div`
- 
         display: ${props => props.isToggle ? 'flex' : 'none'};
         width: 800px;
         height: 400px;
@@ -16,9 +16,10 @@ import img from './img/bigpeper.png'
         z-index: 1000;
         top: 40%;
         left: -15%;
-        p{
+        p {
             margin: 100px;
-        }
+    }
+
         @media screen and (max-width: 1200px) {
         width: 600px;
         height: 300px;
@@ -40,14 +41,12 @@ import img from './img/bigpeper.png'
         font-size: 20px;
         top: 50%;
         left: 5%;
-    }
-        `
+    }`
 const Modal = (props) => {
     const modal = props.modal
     let createdText
     if (modal.isCreated) { 
         createdText = `Поздравляем, вы создали ${modal.potion.name}.`
-
     } else if(modal.isFull) {
         createdText = `На полке кончалось место, вы можете перезагрузить страницу и попробовать еще раз!`
     } else {
@@ -55,7 +54,6 @@ const Modal = (props) => {
     }
     return (
     <Wrapper isToggle={modal.isToggle} onClick={()=>{props.changeToggle()}}>
-        {/* <button >X</button> */}
         <p>{createdText}</p>
     </Wrapper>
 )

@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import Potion from './Potion';
-import bg from './img/polka2.jpg'
-
-
+import bg from './img/polka.jpg'
 
 const PotionsShelf = (props) => {
     const potions = props.potions;

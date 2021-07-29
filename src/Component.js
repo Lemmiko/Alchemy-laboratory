@@ -2,9 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import img from './img/peper.jpg'
 
-
 function Component(props) {  
-
     return (
       <Wrapper onClick={props.onClick}>
       <WrapperText key={props.id} value={props.title}  >{props.title}
@@ -13,7 +11,6 @@ function Component(props) {
     );
   }
   
-
   const Wrapper = styled.div `
     height: 100px;
     width: 100px;

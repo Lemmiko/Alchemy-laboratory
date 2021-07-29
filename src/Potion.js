@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
 function Potion(props) {  
     return (
       <>
@@ -9,7 +8,6 @@ function Potion(props) {
         </>
     );
   }
-  
 
   const Img = styled.img`
     height: 80px;
@@ -17,14 +15,9 @@ function Potion(props) {
     margin-right: -35px;
     padding-top: 15px;
     padding-left: 5px;
-
     @media screen and (max-width: 450px) {
       height: 50px;
       width: 50px;
-
-
-
-    }
- `  
+    }`  
   export default Potion;
   

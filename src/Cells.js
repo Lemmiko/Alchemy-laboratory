@@ -1,17 +1,12 @@
 import React from 'react'
 import Component from './Component';
 import styled from 'styled-components'
-
-
-
 class Cells extends React.Component {
   constructor(props) {
     super(props)
     
     this.handleClick = this.handleClick.bind(this);
   }
-
-  
 
   handleClick(value)  {
     this.props.deleteCurrent(value);
@@ -31,6 +26,7 @@ class Cells extends React.Component {
       </Wrapper>
     );}
   }
+
   const Wrapper = styled.div `
   margin: 20px auto;
   width: 300px;
