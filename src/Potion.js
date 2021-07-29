@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 function Potion(props) {  
     return (
-      < >
+      <>
       <Img key={props.id} title={props.name} src={Object.values(props.img)[0]}/>
         </>
     );

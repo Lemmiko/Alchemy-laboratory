@@ -15,21 +15,31 @@ import img from './img/bigpeper.png'
         justify-content: space-evenly;
         z-index: 1000;
         top: 40%;
-        left: -100px;
-            button {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-        }
+        left: -15%;
         p{
             margin: 100px;
         }
+        @media screen and (max-width: 1200px) {
+        width: 600px;
+        height: 300px;
+        font-size: 20px;
+        top: 50%;
+        left: 0%;
+    }
         @media screen and (max-width: 850px) {
-        width: 350px;
+        width: 400px;
         height: 200px;
         font-size: 20px;
         top: 50%;
-        left: 10px;
+        left: 20%;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 400px;
+        height: 200px;
+        font-size: 20px;
+        top: 50%;
+        left: 5%;
     }
         `
 const Modal = (props) => {
