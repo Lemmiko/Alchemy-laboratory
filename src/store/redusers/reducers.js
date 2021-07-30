@@ -72,7 +72,7 @@ const reducers = (state = initialState, action) => {
                                 isCreated: true,
                                 potion: potion}
                         } 
-            } else if(state.potions.length === 9) {
+            } else if(state.potions.length === 9 && (state.currentComponents[0].title && state.currentComponents[1].title)) {
                 return {...state,
                     currentComponents: [
                         {title: null,

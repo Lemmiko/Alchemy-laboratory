@@ -35,7 +35,6 @@ class Components extends React.Component {
     @media screen and (max-width: 600px) {
       width: 450px;
     }
-
     @media screen and (max-width: 450px) {
       width: 350px;
     }

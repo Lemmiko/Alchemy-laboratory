@@ -53,7 +53,6 @@ class App extends React.Component {
   position: relative;
   @media screen and (max-width: 600px) {
       width: 450px;
-      margin: 0 auto;
     }
  `
 
